@@ -73,11 +73,11 @@ function bestOutcomeForTwoCards(
 			(r1 === "A" && (r2 === "J" || r2 === "Q" || r2 === "K")) ||
 			(r2 === "A" && (r1 === "J" || r1 === "Q" || r1 === "K"))
 		) {
-			outcome_type = "Ngau";
+			outcome_type = "Ngau Tongku";
 			priority = 3;
 			pts = undefined;
 		} else if (r1 === r2) {
-			outcome_type = "Double";
+			outcome_type = "Pair";
 			priority = 2;
 			pts = undefined;
 		} else {
@@ -166,9 +166,9 @@ function computeBestCombination(hand: Card[]): CombinationResult {
 		const { outcome_type, outcome_points } = outcome;
 
 		let candidateRank: [number, number];
-		if (outcome_type === "Ngau") {
+		if (outcome_type === "Ngau Tongku") {
 			candidateRank = [3, 0];
-		} else if (outcome_type === "Double") {
+		} else if (outcome_type === "Pair") {
 			candidateRank = [2, 0];
 		} else {
 			candidateRank = [1, outcome_points];
