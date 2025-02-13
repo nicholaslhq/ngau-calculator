@@ -4,6 +4,10 @@ Tired of losing at Ngau? Want to dominate your friends and family with unbeatabl
 
 This app unlocks the hidden potential of your hand, showing you the best possible combinations to give you a competitive edge. Built with the power of Next.js and styled with the elegance of Tailwind CSS, Ngau Calculator makes complex calculations effortless, turning your game into a victory parade!
 
+![image](https://github.com/user-attachments/assets/2b39d2cb-c713-4bbf-a0c1-55e68ebe1dba)
+
+![image](https://github.com/user-attachments/assets/87739052-acef-4ebf-9378-bdd2c17a25ea)
+
 ## Features
 
 -   **Instant Calculation**: Enter your cards and get the best possible Ngau hand immediately.
