@@ -66,7 +66,7 @@ const NgauCalculator = () => {
 	}, [hand, handleCalculate]);
 
 	return (
-		<Card className="w-full max-w-md p-4 bg-white shadow-none border-0 md:border-2 md:border-border md:shadow-light">
+		<Card className="w-full max-w-md h-full p-4 md:p-8 bg-white shadow-none border-0 md:border-2 md:border-border md:shadow-light">
 			<div className="text-center text-lg font-semibold mb-4">
 				<Card className={`shadow-none p-5 ${
 									result?.error
@@ -90,7 +90,7 @@ const NgauCalculator = () => {
 										: "Ngau Calculator"}
 								</Card>
 			</div>
-			<div className="flex flex-col gap-5 my-5">
+			<div className="flex flex-col gap-5 my-8 md:my-10">
 				<div className="flex justify-evenly">
 					{[...Array(2)].map((_, index) => (
 						<Card
