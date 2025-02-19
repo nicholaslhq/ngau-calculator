@@ -67,7 +67,7 @@ const NgauCalculator = () => {
 	}, [hand, handleCalculate]);
 
 	return (
-		<Card className="flex flex-col items-center justify-center flex-grow max-w-md md:max-h-[90vh] gap-10 p-4 md:p-8 bg-white shadow-none border-0 md:border-2 md:border-border md:shadow-light">
+		<Card className="flex flex-col items-center justify-center flex-grow md:flex-grow-0 max-w-4xl gap-10 p-4 md:p-8 bg-white shadow-none border-0 md:border-2 md:border-border md:shadow-light">
 			<div className="flex w-full text-center text-lg font-semibold">
 				<Card
 					className={`w-full shadow-none ${
@@ -108,106 +108,108 @@ const NgauCalculator = () => {
 					</div>
 				</Card>
 			</div>
-			<div className="flex flex-col w-full justify-center gap-10 flex-grow md:flex-grow-0">
-				<div className="flex justify-evenly">
-					{[...Array(2)].map((_, index) => (
-						<Card
-							key={index}
-							className="w-24 h-36 flex items-center justify-center bg-white"
-						>
-							<span className="text-4xl font-bold">
-								{result &&
-								hand.length === 5 &&
-								!result.error &&
-								!(Number(result.points) == 0) ? (
-									result.remainder[index] === "A" ? (
+			<div className="flex flex-col md:flex-row flex-grow md:flex-grow-0 gap-10">
+				<div className="flex flex-col justify-center gap-10 md:gap-5">
+					<div className="flex justify-evenly">
+						{[...Array(2)].map((_, index) => (
+							<Card
+								key={index}
+								className="w-20 h-28 md:w-24 md:h-36 flex items-center justify-center bg-white"
+							>
+								<span className="text-4xl font-bold">
+									{result &&
+									hand.length === 5 &&
+									!result.error &&
+									!(Number(result.points) == 0) ? (
+										result.remainder[index] === "A" ? (
+											<Spade />
+										) : (
+											result.remainder[index] || ""
+										)
+									) : hand[index] === "A" ? (
 										<Spade />
 									) : (
-										result.remainder[index] || ""
-									)
-								) : hand[index] === "A" ? (
-									<Spade />
-								) : (
-									hand[index] || ""
-								)}
-							</span>
-						</Card>
-					))}
-				</div>
-				<div className="flex justify-between">
-					{[...Array(3)].map((_, index) => (
-						<Card
-							key={index + 2}
-							className="w-24 h-36 flex items-center justify-center bg-white"
-						>
-							<span className="text-4xl font-bold">
-								{result &&
-								hand.length === 5 &&
-								!result.error &&
-								!(Number(result.points) == 0) ? (
-									result.bull_group[index] === "A" ? (
+										hand[index] || ""
+									)}
+								</span>
+							</Card>
+						))}
+					</div>
+					<div className="flex justify-between gap-10">
+						{[...Array(3)].map((_, index) => (
+							<Card
+								key={index + 2}
+								className="w-20 h-28 md:w-24 md:h-36 flex items-center justify-center bg-white"
+							>
+								<span className="text-4xl font-bold">
+									{result &&
+									hand.length === 5 &&
+									!result.error &&
+									!(Number(result.points) == 0) ? (
+										result.bull_group[index] === "A" ? (
+											<Spade />
+										) : (
+											result.bull_group[index] || ""
+										)
+									) : hand[index + 2] === "A" ? (
 										<Spade />
 									) : (
-										result.bull_group[index] || ""
-									)
-								) : hand[index + 2] === "A" ? (
-									<Spade />
-								) : (
-									hand[index + 2] || ""
-								)}
-							</span>
-						</Card>
-					))}
+										hand[index + 2] || ""
+									)}
+								</span>
+							</Card>
+						))}
+					</div>
 				</div>
-			</div>
-			<div>
-				<div className="grid grid-cols-4 gap-2">
-					{[
-						"A",
-						"1",
-						"2",
-						"3",
-						"J",
-						"4",
-						"5",
-						"6",
-						"Q",
-						"7",
-						"8",
-						"9",
-						"K",
-						"10",
-					].map((card) => (
+				<div className="flex items-center">
+					<div className="grid grid-cols-4 gap-2">
+						{[
+							"A",
+							"1",
+							"2",
+							"3",
+							"J",
+							"4",
+							"5",
+							"6",
+							"Q",
+							"7",
+							"8",
+							"9",
+							"K",
+							"10",
+						].map((card) => (
+							<Button
+								key={card}
+								onClick={() => handleCardClick(card)}
+								className="p-8"
+								disabled={
+									hand.length === 5 ||
+									(card === "A" && hand.includes("A")) ||
+									(card !== "A" &&
+										hand.filter((c) => c === card).length >= 4)
+								}
+							>
+								<span className="text-xl [&_svg]:size-6">
+									{card === "A" ? <Spade /> : card}
+								</span>
+							</Button>
+						))}
 						<Button
-							key={card}
-							onClick={() => handleCardClick(card)}
-							className="p-8"
-							disabled={
-								hand.length === 5 ||
-								(card === "A" && hand.includes("A")) ||
-								(card !== "A" &&
-									hand.filter((c) => c === card).length >= 4)
-							}
+							variant="neutral"
+							onClick={handleClear}
+							className="p-8 [&_svg]:size-6"
 						>
-							<span className="text-xl [&_svg]:size-6">
-								{card === "A" ? <Spade /> : card}
-							</span>
+							<X />
 						</Button>
-					))}
-					<Button
-						variant="neutral"
-						onClick={handleClear}
-						className="p-8 [&_svg]:size-6"
-					>
-						<X />
-					</Button>
-					<Button
-						variant="neutral"
-						onClick={handleBackspace}
-						className="p-8 [&_svg]:size-6"
-					>
-						<Delete />
-					</Button>
+						<Button
+							variant="neutral"
+							onClick={handleBackspace}
+							className="p-8 [&_svg]:size-6"
+						>
+							<Delete />
+						</Button>
+					</div>
 				</div>
 			</div>
 		</Card>
