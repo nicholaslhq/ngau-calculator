@@ -73,8 +73,20 @@ const NgauCalculator = () => {
 		if (result?.hand_type === "Ngau Tongku") {
 			setIsPulsing(true);
 
-			const lightColors = ["#FFD400", "#FFB000", "#FF8400", "#FFCA6C", "#FDFF88"];
-			const darkColors = ["#00FF9D", "#00CC7D", "#00FFCC", "#33FFB5", "#80FFCE"];
+			const lightColors = [
+				"#FFD400",
+				"#FFB000",
+				"#FF8400",
+				"#FFCA6C",
+				"#FDFF88",
+			];
+			const darkColors = [
+				"#00FF9D",
+				"#00CC7D",
+				"#00FFCC",
+				"#33FFB5",
+				"#80FFCE",
+			];
 			const colors = theme === "dark" ? darkColors : lightColors;
 
 			const defaults = {
@@ -110,7 +122,7 @@ const NgauCalculator = () => {
 				setIsPulsing(false);
 			}, 2000);
 		}
-	}, [result]);
+	}, [result, theme]);
 
 	// Helper function to get result display styles
 	const getResultStyles = () => {
@@ -156,12 +168,6 @@ const NgauCalculator = () => {
 				<div className="absolute inset-0 rounded-3xl bg-amber-500/20 dark:bg-primary/20 border-4 border-amber-400/50 dark:border-primary/40 shadow-[0_0_30px_rgba(251,191,36,0.4)] dark:shadow-[0_0_30px_rgba(0,255,157,0.4)] z-0">
 					{/* Lights */}
 					<div className="absolute inset-0 rounded-3xl overflow-hidden">
-						{[...Array(40)].map((_, i) => {
-							// Calculate position for lights around the perimeter
-							// This is a simplified approach using absolute positioning for each light
-							// For a perfect rectangle, we'd need more complex logic, but let's try a flex/grid approach or just evenly spaced dots
-							return null;
-						})}
 						{/* Top Row */}
 						<div className="absolute top-1 left-4 right-4 flex justify-evenly">
 							{[...Array(12)].map((_, i) => (
@@ -169,9 +175,13 @@ const NgauCalculator = () => {
 									key={`top-${i}`}
 									className={cn(
 										"w-3 h-3 rounded-full bg-yellow-200 dark:bg-primary/60 shadow-yellow-400 dark:shadow-primary/40 text-yellow-400 dark:text-primary/60",
-										i % 2 === 0 ? "animate-blink-1" : "animate-blink-2"
+										i % 2 === 0
+											? "animate-blink-1"
+											: "animate-blink-2"
 									)}
-									style={{ boxShadow: "0 0 10px currentColor" }}
+									style={{
+										boxShadow: "0 0 10px currentColor",
+									}}
 								/>
 							))}
 						</div>
@@ -182,9 +192,13 @@ const NgauCalculator = () => {
 									key={`bottom-${i}`}
 									className={cn(
 										"w-3 h-3 rounded-full bg-yellow-200 dark:bg-primary/60 shadow-yellow-400 dark:shadow-primary/40 text-yellow-400 dark:text-primary/60",
-										i % 2 === 0 ? "animate-blink-2" : "animate-blink-1"
+										i % 2 === 0
+											? "animate-blink-2"
+											: "animate-blink-1"
 									)}
-									style={{ boxShadow: "0 0 10px currentColor" }}
+									style={{
+										boxShadow: "0 0 10px currentColor",
+									}}
 								/>
 							))}
 						</div>
@@ -195,9 +209,13 @@ const NgauCalculator = () => {
 									key={`left-${i}`}
 									className={cn(
 										"w-3 h-3 rounded-full bg-yellow-200 dark:bg-primary/60 shadow-yellow-400 dark:shadow-primary/40 text-yellow-400 dark:text-primary/60",
-										i % 2 === 0 ? "animate-blink-2" : "animate-blink-1"
+										i % 2 === 0
+											? "animate-blink-2"
+											: "animate-blink-1"
 									)}
-									style={{ boxShadow: "0 0 10px currentColor" }}
+									style={{
+										boxShadow: "0 0 10px currentColor",
+									}}
 								/>
 							))}
 						</div>
@@ -208,9 +226,13 @@ const NgauCalculator = () => {
 									key={`right-${i}`}
 									className={cn(
 										"w-3 h-3 rounded-full bg-yellow-200 dark:bg-primary/60 shadow-yellow-400 dark:shadow-primary/40 text-yellow-400 dark:text-primary/60",
-										i % 2 === 0 ? "animate-blink-1" : "animate-blink-2"
+										i % 2 === 0
+											? "animate-blink-1"
+											: "animate-blink-2"
 									)}
-									style={{ boxShadow: "0 0 10px currentColor" }}
+									style={{
+										boxShadow: "0 0 10px currentColor",
+									}}
 								/>
 							))}
 						</div>
@@ -269,7 +291,15 @@ const NgauCalculator = () => {
 										Ngau Calculator
 									</h1>
 									<p className="text-xs text-primary/70">
-										Created by <a href="https://nlhq.vercel.app/" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">Nicholas</a>
+										Created by{" "}
+										<a
+											href="https://nlhq.vercel.app/"
+											target="_blank"
+											rel="noopener noreferrer"
+											className="underline hover:text-primary transition-colors"
+										>
+											Nicholas
+										</a>
 									</p>
 								</div>
 							</div>
@@ -310,9 +340,9 @@ const NgauCalculator = () => {
 					{[0, 1].map((i) => {
 						const cardVal =
 							result &&
-								hand.length === 5 &&
-								!result.error &&
-								result.points !== 0
+							hand.length === 5 &&
+							!result.error &&
+							result.points !== 0
 								? result.remainder[i].display
 								: hand[i];
 						return (
@@ -322,7 +352,7 @@ const NgauCalculator = () => {
 								faceUp={!!cardVal}
 								className={cn(
 									!cardVal &&
-									"opacity-50 border-dashed border-2 border-muted-foreground/50 bg-transparent"
+										"opacity-50 border-dashed border-2 border-muted-foreground/50 bg-transparent"
 								)}
 							/>
 						);
@@ -337,9 +367,9 @@ const NgauCalculator = () => {
 					{[0, 1, 2].map((i) => {
 						const cardVal =
 							result &&
-								hand.length === 5 &&
-								!result.error &&
-								result.points !== 0
+							hand.length === 5 &&
+							!result.error &&
+							result.points !== 0
 								? result.bull_group[i].display
 								: hand[i + 2];
 						return (
@@ -349,7 +379,7 @@ const NgauCalculator = () => {
 								faceUp={!!cardVal}
 								className={cn(
 									!cardVal &&
-									"opacity-50 border-dashed border-2 border-muted-foreground/50 bg-transparent"
+										"opacity-50 border-dashed border-2 border-muted-foreground/50 bg-transparent"
 								)}
 							/>
 						);
@@ -390,7 +420,7 @@ const NgauCalculator = () => {
 									(hand.includes("AS") || totalAces >= 4)) ||
 								(card === "A" &&
 									hand.filter((c) => c === "A").length >=
-									4) ||
+										4) ||
 								(card === "A" && totalAces >= 4) ||
 								(card !== "AS" &&
 									card !== "A" &&
@@ -400,8 +430,8 @@ const NgauCalculator = () => {
 								card === "AS"
 									? "red"
 									: ["J", "Q", "K"].includes(card)
-										? "default"
-										: "neutral"
+									? "default"
+									: "neutral"
 							}
 							className="w-16 md:w-20 text-lg md:text-xl"
 						>
