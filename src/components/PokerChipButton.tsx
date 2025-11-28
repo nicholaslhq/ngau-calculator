@@ -23,13 +23,13 @@ const PokerChipButton = React.forwardRef<
 
 				// Variants
 				variant === "neutral" &&
-				"bg-white dark:bg-zinc-700 border-zinc-300 dark:border-zinc-500 text-zinc-900 dark:text-zinc-300",
+					"bg-white dark:bg-zinc-700 border-zinc-300 dark:border-zinc-500 text-zinc-900 dark:text-zinc-300",
 				variant === "default" &&
-				"bg-blue-600 dark:bg-blue-900 border-blue-400 dark:border-blue-700 text-white dark:text-zinc-300",
+					"bg-blue-600 dark:bg-blue-900 border-blue-400 dark:border-blue-700 text-white dark:text-zinc-300",
 				variant === "red" &&
-				"bg-red-600 dark:bg-red-900 border-red-400 dark:border-red-700 text-white dark:text-zinc-300",
+					"bg-red-600 dark:bg-red-900 border-red-400 dark:border-red-700 text-white dark:text-zinc-300",
 				variant === "outline" &&
-				"bg-transparent border-zinc-400 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400",
+					"bg-transparent border-zinc-400 dark:border-zinc-700 text-zinc-500 dark:text-zinc-400",
 
 				className
 			)}
@@ -40,12 +40,12 @@ const PokerChipButton = React.forwardRef<
 				className={cn(
 					"absolute inset-1 rounded-full border-2 pointer-events-none",
 					variant === "neutral" &&
-					"border-zinc-300 dark:border-zinc-600",
+						"border-zinc-300 dark:border-zinc-600",
 					variant === "default" &&
-					"border-blue-400 dark:border-blue-700",
+						"border-blue-400 dark:border-blue-700",
 					variant === "red" && "border-red-400 dark:border-red-700",
 					variant === "outline" &&
-					"border-zinc-400 dark:border-zinc-700"
+						"border-zinc-400 dark:border-zinc-700"
 				)}
 			/>
 

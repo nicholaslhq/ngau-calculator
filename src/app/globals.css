@@ -3,147 +3,149 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    /* Light Mode - Green Felt Casino */
-    --background: 150 30% 25%;
-    /* #35654d */
-    --foreground: 0 0% 100%;
+	:root {
+		/* Light Mode - Green Felt Casino */
+		--background: 150 30% 25%;
+		/* #35654d */
+		--foreground: 0 0% 100%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+		--card: 0 0% 100%;
+		--card-foreground: 0 0% 0%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 0 0% 0%;
 
-    --primary: 45 65% 52%;
-    /* #d4af37 Gold */
-    --primary-foreground: 0 0% 0%;
+		--primary: 45 65% 52%;
+		/* #d4af37 Gold */
+		--primary-foreground: 0 0% 0%;
 
-    --secondary: 150 30% 24%;
-    /* Darker Green */
-    --secondary-foreground: 0 0% 100%;
+		--secondary: 150 30% 24%;
+		/* Darker Green */
+		--secondary-foreground: 0 0% 100%;
 
-    --muted: 150 30% 24%;
-    --muted-foreground: 150 20% 80%;
+		--muted: 150 30% 24%;
+		--muted-foreground: 150 20% 80%;
 
-    --accent: 45 65% 52%;
-    --accent-foreground: 0 0% 0%;
+		--accent: 45 65% 52%;
+		--accent-foreground: 0 0% 0%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 0 0% 98%;
 
-    --border: 150 30% 24%;
-    --input: 150 30% 24%;
-    --ring: 45 65% 52%;
+		--border: 150 30% 24%;
+		--input: 150 30% 24%;
+		--ring: 45 65% 52%;
 
-    --radius: 0.5rem;
-  }
+		--radius: 0.5rem;
+	}
 
-  .dark {
-    /* Dark Mode - Cyberpunk/Midnight Casino */
-    --background: 240 12% 12%;
-    /* #0f0f13 */
-    --foreground: 0 0% 95%;
+	.dark {
+		/* Dark Mode - Cyberpunk/Midnight Casino */
+		--background: 240 12% 12%;
+		/* #0f0f13 */
+		--foreground: 0 0% 95%;
 
-    --card: 240 10% 10%;
-    /* #1a1a2e */
-    --card-foreground: 0 0% 95%;
+		--card: 240 10% 10%;
+		/* #1a1a2e */
+		--card-foreground: 0 0% 95%;
 
-    --popover: 240 10% 14%;
-    --popover-foreground: 0 0% 95%;
+		--popover: 240 10% 14%;
+		--popover-foreground: 0 0% 95%;
 
-    --primary: 157 100% 50%;
-    /* #00ff9d Neon Green */
-    --primary-foreground: 240 10% 7%;
+		--primary: 157 100% 50%;
+		/* #00ff9d Neon Green */
+		--primary-foreground: 240 10% 7%;
 
-    --secondary: 240 10% 10%;
-    --secondary-foreground: 0 0% 95%;
+		--secondary: 240 10% 10%;
+		--secondary-foreground: 0 0% 95%;
 
-    --muted: 240 10% 10%;
-    --muted-foreground: 240 5% 65%;
+		--muted: 240 10% 10%;
+		--muted-foreground: 240 5% 65%;
 
-    --accent: 157 100% 50%;
-    --accent-foreground: 240 10% 7%;
+		--accent: 157 100% 50%;
+		--accent-foreground: 240 10% 7%;
 
-    --destructive: 340 100% 50%;
-    /* #ff0055 Neon Red */
-    --destructive-foreground: 0 0% 100%;
+		--destructive: 340 100% 50%;
+		/* #ff0055 Neon Red */
+		--destructive-foreground: 0 0% 100%;
 
-    --border: 240 10% 14%;
-    --input: 240 10% 14%;
-    --ring: 157 100% 50%;
-  }
+		--border: 240 10% 14%;
+		--input: 240 10% 14%;
+		--ring: 157 100% 50%;
+	}
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+	* {
+		@apply border-border;
+	}
 
-  body {
-    @apply bg-background text-foreground;
-  }
+	body {
+		@apply bg-background text-foreground;
+	}
 }
 
 @layer utilities {
-  .perspective-1000 {
-    perspective: 1000px;
-  }
+	.perspective-1000 {
+		perspective: 1000px;
+	}
 
-  .transform-style-3d {
-    transform-style: preserve-3d;
-  }
+	.transform-style-3d {
+		transform-style: preserve-3d;
+	}
 
-  .backface-hidden {
-    backface-visibility: hidden;
-  }
+	.backface-hidden {
+		backface-visibility: hidden;
+	}
 
-  .rotate-y-180 {
-    transform: rotateY(180deg);
-  }
+	.rotate-y-180 {
+		transform: rotateY(180deg);
+	}
 
-  .rotate-y-0 {
-    transform: rotateY(0deg);
-  }
+	.rotate-y-0 {
+		transform: rotateY(0deg);
+	}
 
-  .bg-pattern-grid {
-    background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
-    background-size: 10px 10px;
-  }
+	.bg-pattern-grid {
+		background-image: radial-gradient(
+			circle,
+			currentColor 1px,
+			transparent 1px
+		);
+		background-size: 10px 10px;
+	}
 
-  @keyframes blink-1 {
+	@keyframes blink-1 {
+		0%,
+		100% {
+			opacity: 1;
+			box-shadow: 0 0 10px currentColor;
+		}
 
-    0%,
-    100% {
-      opacity: 1;
-      box-shadow: 0 0 10px currentColor;
-    }
+		50% {
+			opacity: 0.3;
+			box-shadow: none;
+		}
+	}
 
-    50% {
-      opacity: 0.3;
-      box-shadow: none;
-    }
-  }
+	@keyframes blink-2 {
+		0%,
+		100% {
+			opacity: 0.3;
+			box-shadow: none;
+		}
 
-  @keyframes blink-2 {
+		50% {
+			opacity: 1;
+			box-shadow: 0 0 10px currentColor;
+		}
+	}
 
-    0%,
-    100% {
-      opacity: 0.3;
-      box-shadow: none;
-    }
+	.animate-blink-1 {
+		animation: blink-1 3s infinite;
+	}
 
-    50% {
-      opacity: 1;
-      box-shadow: 0 0 10px currentColor;
-    }
-  }
-
-  .animate-blink-1 {
-    animation: blink-1 3s infinite;
-  }
-
-  .animate-blink-2 {
-    animation: blink-2 3s infinite;
-  }
+	.animate-blink-2 {
+		animation: blink-2 3s infinite;
+	}
 }
