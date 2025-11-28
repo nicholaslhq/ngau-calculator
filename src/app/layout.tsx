@@ -15,7 +15,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
 	title: "Ngau Calculator",
 	description: "A simple calculator for Ngau.",
+	icons: {
+		icon: "/icon.svg",
+	},
 };
+
+import { Providers } from "./providers";
 
 export default function RootLayout({
 	children,
@@ -23,11 +28,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				{children}
+				<Providers>{children}</Providers>
 			</body>
 		</html>
 	);
