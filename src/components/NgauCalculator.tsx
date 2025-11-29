@@ -122,7 +122,7 @@ const NgauCalculator = () => {
 				setIsPulsing(false);
 			}, 2000);
 		}
-	}, [result, theme]);
+	}, [result]);
 
 	// Helper function to get result display styles
 	const getResultStyles = () => {
@@ -340,9 +340,9 @@ const NgauCalculator = () => {
 					{[0, 1].map((i) => {
 						const cardVal =
 							result &&
-							hand.length === 5 &&
-							!result.error &&
-							result.points !== 0
+								hand.length === 5 &&
+								!result.error &&
+								result.points !== 0
 								? result.remainder[i].display
 								: hand[i];
 						return (
@@ -352,7 +352,7 @@ const NgauCalculator = () => {
 								faceUp={!!cardVal}
 								className={cn(
 									!cardVal &&
-										"opacity-50 border-dashed border-2 border-muted-foreground/50 bg-transparent"
+									"opacity-50 border-dashed border-2 border-muted-foreground/50 bg-transparent"
 								)}
 							/>
 						);
@@ -367,9 +367,9 @@ const NgauCalculator = () => {
 					{[0, 1, 2].map((i) => {
 						const cardVal =
 							result &&
-							hand.length === 5 &&
-							!result.error &&
-							result.points !== 0
+								hand.length === 5 &&
+								!result.error &&
+								result.points !== 0
 								? result.bull_group[i].display
 								: hand[i + 2];
 						return (
@@ -379,7 +379,7 @@ const NgauCalculator = () => {
 								faceUp={!!cardVal}
 								className={cn(
 									!cardVal &&
-										"opacity-50 border-dashed border-2 border-muted-foreground/50 bg-transparent"
+									"opacity-50 border-dashed border-2 border-muted-foreground/50 bg-transparent"
 								)}
 							/>
 						);
@@ -420,7 +420,7 @@ const NgauCalculator = () => {
 									(hand.includes("AS") || totalAces >= 4)) ||
 								(card === "A" &&
 									hand.filter((c) => c === "A").length >=
-										4) ||
+									4) ||
 								(card === "A" && totalAces >= 4) ||
 								(card !== "AS" &&
 									card !== "A" &&
@@ -430,8 +430,8 @@ const NgauCalculator = () => {
 								card === "AS"
 									? "red"
 									: ["J", "Q", "K"].includes(card)
-									? "default"
-									: "neutral"
+										? "default"
+										: "neutral"
 							}
 							className="w-16 md:w-20 text-lg md:text-xl"
 						>
