@@ -64,9 +64,9 @@ function bestOutcomeForTwoCards(cards: Card[]): {
 		let pts: number | undefined;
 
 		if (
-			(r1.value === "A" &&
+			(r1.display === "AS" &&
 				(r2.value === "J" || r2.value === "Q" || r2.value === "K")) ||
-			(r2.value === "A" &&
+			(r2.display === "AS" &&
 				(r1.value === "J" || r1.value === "Q" || r1.value === "K"))
 		) {
 			outcome_type = "Ngau Tongku";
